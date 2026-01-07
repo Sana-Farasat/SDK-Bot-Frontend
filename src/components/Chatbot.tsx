@@ -44,10 +44,10 @@ export default function Chatbot() {
         ...prev,
         { sender: "bot", text: data.reply || "No response received" },
       ]);
-    } catch (err: any) {
+    } catch (error: unknown) {
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: `Error: ${err.message || "Connection issue"}` },
+        { sender: "bot", text: `Error: ${error || "Connection issue"}` },
       ]);
     } finally {
       setLoading(false);
